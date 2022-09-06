@@ -6,7 +6,8 @@
 
 ## Install Kubernetes
 1. Open Powershell and type "winget install minikube"
-2. Close powershell and open it with admin rights, type the command: minikube start --container-runtime=docker --vm=true
+2. Close powershell and open it with admin rights, type the command: "minikube start --container-runtime=docker --vm=true"
+3. Run the following command for docker cli to point to minikube: "& minikube -p minikube docker-env --shell powershell | Invoke-Expression"
 
 ## Install Kubectl
 Follow this guide(Download binary and add to PATH): https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/
