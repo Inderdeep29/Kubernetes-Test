@@ -37,7 +37,7 @@ kubectl create clusterrolebinding permissive-binding --clusterrole=cluster-admin
 # Others
 - To Generate kubernetes .yaml files from Docker compose: "wsl kompose convert"
 
-# Old:
+# OLD - DO NOT FOLLOW STEPS BELOW, THESE ARE JUST FOR REFERENCE FOR CONFIGURING THINGS VIA UBUNTU SUBSYSTEM :
 ## Install Docker:
 Install Docker: Follow guide on: https://betterprogramming.pub/how-to-install-docker-without-docker-desktop-on-windows-a2bbb65638a1
 
