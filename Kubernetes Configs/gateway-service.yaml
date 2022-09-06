@@ -9,10 +9,12 @@ metadata:
     io.kompose.service: gateway
   name: gateway
 spec:
+  type: LoadBalancer 
   ports:
     - name: "8001"
       port: 8001
       targetPort: 80
+      nodePort: 30100
   selector:
     io.kompose.service: gateway
 status:
