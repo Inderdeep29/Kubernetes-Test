@@ -17,21 +17,17 @@ kubectl create clusterrolebinding permissive-binding --clusterrole=cluster-admin
 
 ## Post Installation Steps
 1. In Powershell, type dockerd, this will start the docker daemon.
-2. OPen another powershell and Cd to this Repo
+2. Open another powershell and Cd to this Repo
 3. Run the following command for docker cli to point to minikube: "& minikube -p minikube docker-env --shell powershell | Invoke-Expression"
 4. Run the following commands one by one:
     - docker build . -t gateway:latest -f Gateway/Dockerfile
     - docker build . -t content:latest -f Content/Dockerfile
     - docker build . -t product:latest -f Product/Dockerfile
-  This will create the images.
-5. Now run the following commands to load these images to minikube repo
-    - minikube image load gateway:latest
-    - minikube image load content:latest
-    - minikube image load product:latest
-6. Now cd Into "/Kubernetes Configs" folder inside this repo and run the following command
+  This will create the images under minikube.
+5. Now cd Into "/Kubernetes Configs" folder inside this repo and run the following command
     - kubectl apply -f content-api-service.yaml,db-service.yaml,gateway-service.yaml,product-api-service.yaml,content-api-deployment.yaml,db-deployment.yaml,db-persistentvolumeclaim.yaml,gateway-deployment.yaml,product-api-deployment.yaml
-7. In powershell, run "minikube service gateway" and it should open the gateway address in browser "x.x.x.x:30100", to test APIs, run "x.x.x.x:30100/content-service/Test1", "x.x.x.x:30100/content-service/GetWeatherTypes", "x.x.x.x:30100/product-service"
-8. To stop the services and pods, run:
+6. In powershell, run "minikube service gateway" and it should open the gateway address in browser "x.x.x.x:30100", to test APIs, run "x.x.x.x:30100/content-service/Test1", "x.x.x.x:30100/content-service/GetWeatherTypes", "x.x.x.x:30100/product-service"
+7. To stop the services and pods, run:
     - kubectl delete -f content-api-service.yaml,db-service.yaml,gateway-service.yaml,product-api-service.yaml,content-api-deployment.yaml,db-deployment.yaml,db-persistentvolumeclaim.yaml,gateway-deployment.yaml,product-api-deployment.yaml
 
 
