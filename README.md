@@ -3,6 +3,7 @@
 1. Enable Windows Features: Containers and Hyper-V
 2. Download the static binary archive. Go to https://download.docker.com/win/static/stable/x86_64 and select the latest version from the list.
 3. Extract the binaries somewhere and add the folder to PATH environment variable.
+4. In Powershell, type dockerd, this will start the docker daemon.
 
 ## Install Kubernetes
 1. Open Powershell and type "winget install minikube"
@@ -16,18 +17,17 @@ After Installation, run the following:
 kubectl create clusterrolebinding permissive-binding --clusterrole=cluster-admin --user=admin --user=kubelet --group=system:serviceaccounts
 
 ## Post Installation Steps
-1. In Powershell, type dockerd, this will start the docker daemon.
-2. Open another powershell and Cd to this Repo
-3. Run the following command for docker cli to point to minikube: "& minikube -p minikube docker-env --shell powershell | Invoke-Expression"
-4. Run the following commands one by one:
+1. Open powershell and cd to this Repo
+2. Run the following command for docker cli to point to minikube: "& minikube -p minikube docker-env --shell powershell | Invoke-Expression"
+3. Run the following commands one by one:
     - docker build . -t gateway:latest -f Gateway/Dockerfile
     - docker build . -t content:latest -f Content/Dockerfile
     - docker build . -t product:latest -f Product/Dockerfile
   This will create the images under minikube.
-5. Now run the following command to start all services and pods:
+4. Now run the following command to start all services and pods:
     - kubectl apply -f kubernetes-configs
-6. In powershell, run "minikube service gateway" and it should open the gateway address in browser "x.x.x.x:30100", to test APIs, run "x.x.x.x:30100/content-service/Test1", "x.x.x.x:30100/content-service/GetWeatherTypes", "x.x.x.x:30100/product-service"
-7. To stop the services and pods, run:
+5. In powershell, run "minikube service gateway" and it should open the gateway address in browser "x.x.x.x:30100", to test APIs, run "x.x.x.x:30100/content-service/Test1", "x.x.x.x:30100/content-service/GetWeatherTypes", "x.x.x.x:30100/product-service"
+6. To stop the services and pods, run:
     - kubectl delete -f kubernetes-configs
 
 
