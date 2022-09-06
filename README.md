@@ -15,11 +15,11 @@ Note: You need to install this on Ubuntu you created while installing Docker so 
     - wsl docker build . -t product:latest -f Product/Dockerfile
   This will create the images.
 3. Now run the following commands to load these images to minikube repo
-  - wsl minikube image load gateway:latest
-  - wsl minikube image load content:latest
-  - wsl minikube image load product:latest
+    - wsl minikube image load gateway:latest
+    - wsl minikube image load content:latest
+    - wsl minikube image load product:latest
 4. Now cd Into "/Kubernetes Configs" folder inside this repo and run the following command
-  - kubectl apply -f ingress.yaml,content-api-service.yaml,db-service.yaml,gateway-service.yaml,product-api-service.yaml,content-api-deployment.yaml,db-deployment.yaml,db-persistentvolumeclaim.yaml,gateway-deployment.yaml,product-api-deployment.yaml
+    - kubectl apply -f ingress.yaml,content-api-service.yaml,db-service.yaml,gateway-service.yaml,product-api-service.yaml,content-api-deployment.yaml,db-deployment.yaml,db-persistentvolumeclaim.yaml,gateway-deployment.yaml,product-api-deployment.yaml
 
 
 # Others
