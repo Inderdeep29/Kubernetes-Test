@@ -25,10 +25,10 @@ kubectl create clusterrolebinding permissive-binding --clusterrole=cluster-admin
     - docker build . -t product:latest -f Product/Dockerfile
   This will create the images under minikube.
 5. Now run the following command to start all services and pods:
-    - kubectl apply -f 'Kubernetes Configs'
+    - kubectl apply -f kubernetes-configs
 6. In powershell, run "minikube service gateway" and it should open the gateway address in browser "x.x.x.x:30100", to test APIs, run "x.x.x.x:30100/content-service/Test1", "x.x.x.x:30100/content-service/GetWeatherTypes", "x.x.x.x:30100/product-service"
 7. To stop the services and pods, run:
-    - kubectl delete -f 'Kubernetes Configs'
+    - kubectl delete -f kubernetes-configs
 
 
 # Others
