@@ -1,0 +1,42 @@
+﻿{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/Content/{everything}",
+      "DownstreamScheme": "http",
+      "ServiceName": "content-api",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      //"DownstreamHostAndPorts": [
+      //  {
+      //    "Host": "content-api",
+      //    "Port": 80
+      //  }
+      //],
+      "UpstreamPathTemplate": "/content-service/{everything}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/Product",
+      "DownstreamScheme": "http",
+      "ServiceName": "product-api",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      //"DownstreamHostAndPorts": [
+      //  {
+      //    "Host": "product-api",
+      //    "Port": 80
+      //  }
+      //],
+      "UpstreamPathTemplate": "/product-service",
+      "UpstreamHttpMethod": [ "Get", "POST" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "ServiceDiscoveryProvider": {
+      "Namespace": "default",
+      "Type": "KubernetesServiceDiscoveryProvider"
+    }
+  }
+}

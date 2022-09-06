@@ -1,0 +1,36 @@
+Create project: dotnet new webapi -o product -f net6.0
+
+dotnet run
+
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+
+
+Docker Install: https://betterprogramming.pub/how-to-install-docker-without-docker-desktop-on-windows-a2bbb65638a1
+https://medium.com/@frcs6b/docker-engine-on-wsl-visual-studio-2019-without-docker-desktop-dfdbef353350
+
+Create Models from DB: Scaffold-DbContext "Host=localhost:5432;Database=trading_compliance;Username=postgres;Password=root" Npgsql.EntityFrameworkCore.PostgreSQL -OutputDir Models
+
+
+
+Docker commands:
+docker system df
+docker images
+docker ps
+wsl docker build . -t test-content:1.00 -f Content/Dockerfile
+
+
+wsl docker build . -t gateway:latest -f Gateway/Dockerfile
+wsl docker build . -t content:latest -f Content/Dockerfile
+wsl docker build . -t product:latest -f Product/Dockerfile
+
+
+
+wsl minikube image load product:latest
+
+
+
+wsl kubectl expose deployment gateway--type=NodePort --port=80 --name=gateway
+
+
+wsl kubectl create clusterrolebinding permissive-binding --clusterrole=cluster-admin --user=admin --user=kubelet --group=system:serviceaccounts
