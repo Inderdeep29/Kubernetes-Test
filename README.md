@@ -11,6 +11,9 @@
 ## Install Kubectl
 Follow this guide(Download binary and add to PATH): https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/
 
+After Installation, run the following:
+kubectl create clusterrolebinding permissive-binding --clusterrole=cluster-admin --user=admin --user=kubelet --group=system:serviceaccounts
+
 ## Post Installation Steps
 1. Cd to this Repo
 2. Run the following command for docker cli to point to minikube: "& minikube -p minikube docker-env --shell powershell | Invoke-Expression"
