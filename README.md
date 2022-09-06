@@ -30,7 +30,7 @@ kubectl create clusterrolebinding permissive-binding --clusterrole=cluster-admin
 5. Now cd Into "/Kubernetes Configs" folder inside this repo and run the following command
     - kubectl apply -f content-api-service.yaml,db-service.yaml,gateway-service.yaml,product-api-service.yaml,content-api-deployment.yaml,db-deployment.yaml,db-persistentvolumeclaim.yaml,gateway-deployment.yaml,product-api-deployment.yaml
 6. To stop the services and pods, run:
-    -  - kubectl delete -f content-api-service.yaml,db-service.yaml,gateway-service.yaml,product-api-service.yaml,content-api-deployment.yaml,db-deployment.yaml,db-persistentvolumeclaim.yaml,gateway-deployment.yaml,product-api-deployment.yaml
+    - kubectl delete -f content-api-service.yaml,db-service.yaml,gateway-service.yaml,product-api-service.yaml,content-api-deployment.yaml,db-deployment.yaml,db-persistentvolumeclaim.yaml,gateway-deployment.yaml,product-api-deployment.yaml
 
 
 # Others
