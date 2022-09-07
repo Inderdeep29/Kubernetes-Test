@@ -5,7 +5,7 @@
 3. Extract the binaries somewhere and add the folder to PATH environment variable.
 4. In Powershell, type dockerd, this will start the docker daemon.
 
-## Install Kubernetes
+## Install Kubernetes(Minikube)
 1. Open Powershell and type "winget install minikube"
 2. Close powershell and open it with admin rights, type the command: "minikube start --container-runtime=docker --vm=true"
 
@@ -27,7 +27,8 @@ kubectl create clusterrolebinding permissive-binding --clusterrole=cluster-admin
 4. Now run the following command to start all services and pods:
     - kubectl apply -f kubernetes-configs
 5. In powershell, run "minikube service gateway" and it should open the gateway address in browser "x.x.x.x:30100", to test APIs, run "x.x.x.x:30100/content-service/Test1", "x.x.x.x:30100/content-service/GetWeatherTypes", "x.x.x.x:30100/product-service"
-6. To stop the services and pods, run:
+6. In case you need to access the service through localHost, run the command in powershell: "kubectl port-forward svc/gateway 8001:8001". After this access the apis as "localhost:8001/content-service/Test1", "localhost:8001/product-service" etc
+7. To stop the services and pods, run:
     - kubectl delete -f kubernetes-configs
 
 
