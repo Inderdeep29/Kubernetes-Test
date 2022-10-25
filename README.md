@@ -4,6 +4,7 @@
 2. Download the static binary archive. Go to https://download.docker.com/win/static/stable/x86_64 and select the latest version from the list.
 3. Extract the binaries somewhere and add the folder to PATH environment variable.
 4. In Powershell, type dockerd, this will start the docker daemon.
+(For Docker compose: https://github.com/docker/compose/releases, download and add to PATH)
 
 ## Install Kubernetes(Minikube)
 1. Open Powershell and type "winget install minikube"
